@@ -51,12 +51,13 @@ const Home = () => {
 
       </div>
       
+      
       {info.main ? <h1>Temperature: {info.main.temp - 273}°C</h1> : null}
       {info.wind ? <h1>Wind speed: {info.wind.speed} MPH</h1> : null}
 
 
     </div>
-    
+    //the above part makes it so that nothing is displayed if no API retern is seen, this prevents errors and prevents empty text stuff floating
     
   );
 };

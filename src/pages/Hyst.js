@@ -13,7 +13,7 @@ const Hyst = () => {
   const url='http://localhost:8080/'+date
 
   const search = (event) => {
-    
+    //this is the part that takes your input in the text box and spits it into the api to get a return
     if (event.key === 'Enter'){
       axios.get(url).then((response) => {
        setinfo(response.data)
@@ -41,7 +41,7 @@ const Hyst = () => {
      
       <div className="search">
         <input
-        
+        //this is the text box you enter
         value={date}
         onChange={event => setdate(event.target.value)}
         onKeyPress={search}
