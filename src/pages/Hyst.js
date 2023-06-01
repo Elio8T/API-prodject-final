@@ -8,9 +8,9 @@ const Hyst = () => {
 
   const [info, setinfo] = useState({})
   
-  const [date , setdate] = useState("") 
+  const [email , setemail] = useState("") 
   
-  const url='http://localhost:8080/'+date
+  const url='http://localhost:8080/triplog/id/'+email
 
   const search = (event) => {
     //this is the part that takes your input in the text box and spits it into the api to get a return
@@ -20,7 +20,7 @@ const Hyst = () => {
         console.log(response.data)
         
       })
-      setdate('')
+      setemail('')
     }
 
 
@@ -36,25 +36,25 @@ const Hyst = () => {
     <div>
       <title>Past weather</title>
       
-      <h1>Input a date to find historic weather data in boston</h1>
+      <h1>Input Email to find trips</h1>
       
      
       <div className="search">
         <input
         //this is the text box you enter
-        value={date}
-        onChange={event => setdate(event.target.value)}
+        value={email}
+        onChange={event => setemail(event.target.value)}
         onKeyPress={search}
-        placeholder='Enter m-d-yy'
+        placeholder='enter email to find trip'
         type="text"/>
 
       </div>
       
       
-      {info.Temperature ? <h1>Temperature: {info.AverageTempF}°F</h1> : null}
-      {info.WindMPH ? <h1>Wind speed: {info.WindMPH} MPH</h1> : null}
-      {info.Visability ? <h1>Visability: {info.Visability} M</h1> : null}
-      {info.PrecipititationIN ? <h1>Precipititation: {info.PrecipititationIN} in</h1> : null}
+      {info.group ? <h1>group: {info.group}</h1> : null}
+      {info.timeout ? <h1>check out time: {info.timeout} </h1> : null}
+      {info.timein ? <h1>check in time: {info.timein} </h1> : null}
+      {info.id ? <h1>trip id: {info.id} </h1> : null}
 
       
 
